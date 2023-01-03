@@ -12,10 +12,10 @@ public class Exercise2_3 {
     public static void main(String[] args) {
         Space board = new SequentialSpace();
 
-        new Thread(new waiter(board)).start();
+        new Thread(new Waiter(board)).start();
 
         for (int i = 0; i < N; i ++) {
-            new Thread(new philosopher(board, i)).start();
+            new Thread(new Philosopher(board, i)).start();
         }
 
         try {
