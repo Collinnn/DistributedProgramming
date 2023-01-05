@@ -9,14 +9,14 @@ public class Waiter {
     public static void main(String[] args) {
         int port = 31145;
         int philosopher = 8;
-        String URI = "tcp://localhost" + port + "/?conn";
+        String URI = "tcp://localhost:" + port + "/?conn";
 
         SpaceRepository repository = new SpaceRepository();
         
         repository.addGate(URI);
         Space board = new SequentialSpace();
         repository.add("board",board);
-        
+
 
         for (int i = 0; i < philosopher; i ++) {
             try {

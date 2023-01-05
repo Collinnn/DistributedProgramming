@@ -8,13 +8,14 @@ public class Philosopher {
     
     public static void main(String[] args){
         int port = 31145;
-        int philosophers = 8;
+        int philosophers = 1;
         String host = "localhost";
         System.out.println("Start");
         try {
             String URL =  "tcp://" + host + ":" + port + "/board?conn";
             Space board = new RemoteSpace(URL);
             System.out.println("Remoted in");
+            
             for(int i=0; i<philosophers;i++){
                 philosopher(board, i);
             }
@@ -37,8 +38,9 @@ public class Philosopher {
                 board.put("ticket");
 
             }catch(InterruptedException e){
-
+                e.printStackTrace();
             }
+            break;
         }
 
     }
